@@ -2,3 +2,7 @@
 
 import '/imports/startup/client';
 import '/imports/startup/both';
+
+Meteor.startup(function() {
+   $('body').addClass('homepage');
+});

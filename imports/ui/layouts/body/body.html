@@ -1,3 +1,8 @@
+<!-- this is app wide layout -->
 <template name="App_body">
-  {{> Template.dynamic template=main}}
+	{{> header}}
+	{{> yield}}
+
+
+	
 </template>
