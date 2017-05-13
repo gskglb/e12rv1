@@ -30,3 +30,8 @@ accounts-ui
 useraccounts:bootstrap
 useraccounts:iron-routing
 alanning:roles
+aldeed:collection2
+momentjs:moment
+zimme:iron-router-active
+dburles:collection-helpers
+aldeed:autoform

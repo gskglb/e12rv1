@@ -17,7 +17,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-            <li><a href="/profile">My Profile</a></li>
+            <li><a href="{{ pathFor 'createIdea' }}" class="btn btn-danger">Have an Idea?</a></li>
+            <li><a href="{{ pathFor 'manageProfile' }}">My Profile</a></li>
             <li><a href="#" data-action="logout">Sign out</a></li>
           {{else}}
             <li><a href="{{ pathFor 'atSignIn' }}">Sign in</a></li>

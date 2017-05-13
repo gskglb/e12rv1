@@ -1,0 +1,13 @@
+<template name="createIdeaForm">
+  {{flash}}
+  {{#autoForm schema="IdeaSchema" collection="Idea" id="insertIdeaForm" type="insert" doc=defaultValues}}
+    <fieldset>
+    	{{> afQuickField name='refNo' type="text" readonly=true }}
+        {{> afQuickField name='status' readonly=true }}
+       
+    </fieldset>
+    <button type="submit" class="btn btn-danger">Create Idea</button>
+
+  {{/autoForm}}
+
+</template>
