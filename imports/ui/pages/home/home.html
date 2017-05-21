@@ -1,3 +1,10 @@
 <template name="home">
-Home
+	<ul class="article-list-vertical">
+		{{#each ideas}}
+			<li>
+				{{> Template.dynamic template="ideaListing" data=this}}				
+			</li>
+		{{/each}}
+	</ul>
+
 </template>
