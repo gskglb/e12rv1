@@ -2,7 +2,12 @@
     <a href="#" style="background-image: url('http://placehold.it/200x150')"></a>
     <div>
         <h2><a href="#">{{summary}}</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu lacus mattis laoreet diam a volutpat magna.</p>
-        <a href="#" class="read-more">View Details &rarr;</a>
+        <p>{{description}}</p>
+        <p>
+        	<a href="#"><span class="glyphicon glyphicon-thumbs-up text-success"></span></a>&nbsp;{{likes_count}}
+        	
+        	<span class="glyphicon glyphicon-thumbs-down text-warning"></span>&nbsp;{{dislikes_count}}
+        </p>
+		<a href="#" class="read-more">View Details &rarr;</a>
     </div>
  </template>
