@@ -16,7 +16,7 @@
     overflow: hidden;
     background-color: #fff;
     font: normal 13px sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 }
 
@@ -27,14 +27,13 @@
     width: 300px;
     height: 200px;
     display: block;
-
     background-size: cover;
 }
 
 .article-list-vertical li div{
     float: left;
     box-sizing: border-box;
-        padding: 30px;
+    padding: 10px;
 }
 
 /* Article title */
@@ -57,8 +56,9 @@
 .article-list-vertical li div p{
     line-height: 20px;
     color: #5d5d5d;
-
-    margin: 20px 0;
+    margin: 10px 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .article-list-vertical li a.read-more{
@@ -90,7 +90,7 @@
 
     .article-list-vertical li div{
         float: none;
-        padding: 30px;
+        padding: 10px;
     }
 
 }
