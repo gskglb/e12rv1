@@ -1,18 +1,25 @@
 <!-- this is app wide layout -->
 <template name="App_body">
-	{{> header}}
-	<div class="container-fluid app-container">
-  		<div class="row">
-  			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-  				{{> sideMenu}}
-  			</div>
-  			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
-    			{{> yield}}
-    		</div>
-    	</div>	
-      	<hr>
-	  <footer>
-	    <p>&copy; 2017 Company, Inc.</p>
-	  </footer>
+	
+	<div class="container flex-grid">
+  {{> header}}
+  <div class="page-content">
+    <div class="row">
+     <div class="col">
+        {{> yield}}
+      </div>
+
+    </div>
+  
+  </div>
+
+  <footer>
+      <div class="bottom-menu-wrapper">
+          <ul class="horizontal-menu compact">
+              <li><a>&copy; 2017 Parimala AppLabs</a></li>
+          </ul>
+      </div>
+  </footer>
+
 	</div>
 </template>

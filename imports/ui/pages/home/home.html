@@ -1,10 +1,46 @@
 <template name="home">
-	<ul class="article-list-vertical">
-		{{#each ideas}}
-			<li>
-				{{> Template.dynamic template="ideaListing" data=this}}				
-			</li>
+<div class="row">
+<div class="tile-area no-padding">
+    <h4 class="fg-orange text-light margin5">TOP RANKED <span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h4>
+    <div class="tile-group no-margin no-padding" style="width: 100%;">
+        <div class="tile-large tile-wide-y bg-white" data-role="tile">
+        	<div class="tile-content">
+	            <div class="panel" style="height: 100%">
+	                <div class="heading bg-darkRed fg-white"><span class="title text-light">Featured Idea</span></div>
+	                <div class="content fg-dark clear-float" style="height: 100%">
+	                    <img src="../images/jeki_chan.jpg" class="place-left margin10" style="height: 100%">
+	                    <h2 class="text-light">Growing Old Before Growing Up</h2>
+	                    <p>Jackie Chan’s new book “Growing Old Before Growing Up” 《還沒長大就老了》, written by Zhu Mo, was released on his birthday on April 7, 2015, during a press conference held in Beijing.</p>
+	                </div>
+	            </div>
+            </div>
+        </div>
+        {{#each ideas}}
+			{{> Template.dynamic template="ideaListing" data=this}}				
 		{{/each}}
-	</ul>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="tile-area no-padding">
+    <h4 class="fg-blue text-light margin5">MOST LIKED<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h4>
+    <div class="tile-group no-margin no-padding" style="width: 100%;">
+        <div class="tile-large ol-transparent" data-role="tile"></div>
+        <div class="tile-wide ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile ol-transparent" data-role="tile"></div>
+        <div class="tile-wide ol-transparent" data-role="tile"></div>
+    </div>
+    </div>
+</div>
+ 
 
 </template>

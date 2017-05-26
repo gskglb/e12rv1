@@ -1,43 +1,24 @@
 <template name="sideMenu">
-  <nav class="navbar navbar-default" style="background-color: white; border: none;"  role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"  style="background-color:#E95420;" data-toggle="collapse" data-target="#navbar-collapse-2">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-    <!-- If user is guest-->	
-	{{#if currentUser}}
-	    <div class="panel-heading">Our Pick</div>
-	      <ul class="nav nav-stacked">
-	      	<li><a href="#">Top Ranked</a></li>
-	      	<li><a href="#">Most Liked</a></li>
-	      	<li><a href="#">Recently Added</a></li>
-	      </ul>
-	      <hr />
-	      <div class="panel-heading">Categories</div>
-	      <ul class="nav nav-stacked">
-			<!-- Need to get Categories list -->          
-	      </ul>
-
-	{{else}}
-	      <div class="panel-heading">Something</div>
-	      <ul class="nav nav-stacked">
-	      	<li><a href="#">Link 1</a></li>
-	      	<li><a href="#">Link 2</a></li>
-	      	<li><a href="#">Link 3</a></li>
-	      </ul>
-	      <hr />
-	      <div class="panel-heading">Something else</div>
-	      <ul class="nav nav-stacked">
-			<!-- Need to get Categories list -->          
-	      </ul>
-
-    {{/if}}
-    </div>
-  </nav>
-
+ <div class="cell" id="cell-sidebar" style="height: 100%">
+    <ul class="sidebar2 dark">
+		<li class="title">Quick Selection</li>
+		<li class="active"><a href="#"><span class="mif-home icon"></span>Dashboard</a></li>
+		<li class="stick bg-red"><a href="{{ pathFor 'createIdea' }}"><span class="mif-cog icon"></span>Create Idea</a></li>
+		<li class="stick bg-green">
+		    <a class="dropdown-toggle" href="#"><span class="mif-tree icon"></span>Browse Idea</a>
+		    <ul class="d-menu" data-role="dropdown">
+		        <li><a href=""><span class="mif-vpn-lock icon"></span>Top Rated</a></li>
+		        <li><a href="">Most Liked</a></li>
+		        <li><a href="">Most Active</a></li>
+		        <li><a href="">Subitem 4</a></li>
+		        
+		    </ul>
+		</li>
+			
+		<li class="title">Categories</li>
+		<li><a href="#">Category Item 1</a></li>
+		<li><a href="#">Category item 2</a></li>
+		<li><a href="#">Category item 3</a></li>
+    </ul>
+ </div>
 </template>
