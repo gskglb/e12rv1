@@ -1,0 +1,12 @@
+<template name="ideaListing">
+<div class="tile ol-transparent" data-role="tile">
+        <h4><a href="#">{{summary}}</a></h4>
+        <p>{{trimDescription}}</p>
+        <p>
+        	<a href="#"><span class="glyphicon glyphicon-thumbs-up text-success"></span></a>&nbsp;{{likes_count}}
+        	
+        	<span class="glyphicon glyphicon-thumbs-down text-warning"></span>&nbsp;{{dislikes_count}}
+        </p>
+		<a href="#" class="btn btn-primary">View Details &rarr;</a>
+</div>
+ </template>

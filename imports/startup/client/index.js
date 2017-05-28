@@ -5,3 +5,7 @@ import './routes.js';
 Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
+
+Meteor.startup(function(){
+	//$('body').addClass('bg-steel');
+});

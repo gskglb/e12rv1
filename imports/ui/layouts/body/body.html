@@ -1,18 +1,6 @@
 <!-- this is app wide layout -->
 <template name="App_body">
-	{{> header}}
-	<div class="container-fluid app-container">
-  		<div class="row">
-  			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-  				{{> sideMenu}}
-  			</div>
-  			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
-    			{{> yield}}
-    		</div>
-    	</div>	
-      	<hr>
-	  <footer>
-	    <p>&copy; 2017 Company, Inc.</p>
-	  </footer>
-	</div>
+  {{> header}}
+  {{> yield}}
+
 </template>
