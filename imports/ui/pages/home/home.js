@@ -10,4 +10,10 @@ Template.home.helpers({
   ideas() {
     return Idea.find({});
   },
+
+  trimDescription(desc){
+  	return desc.substr(0,500) + "...";
+  }
+
 });
+

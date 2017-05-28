@@ -1,46 +1,68 @@
 <template name="home">
-<div class="row">
-<div class="tile-area no-padding">
-    <h4 class="fg-orange text-light margin5">TOP RANKED <span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h4>
-    <div class="tile-group no-margin no-padding" style="width: 100%;">
-        <div class="tile-large tile-wide-y bg-white" data-role="tile">
-        	<div class="tile-content">
-	            <div class="panel" style="height: 100%">
-	                <div class="heading bg-darkRed fg-white"><span class="title text-light">Featured Idea</span></div>
-	                <div class="content fg-dark clear-float" style="height: 100%">
-	                    <img src="../images/jeki_chan.jpg" class="place-left margin10" style="height: 100%">
-	                    <h2 class="text-light">Growing Old Before Growing Up</h2>
-	                    <p>Jackie Chan’s new book “Growing Old Before Growing Up” 《還沒長大就老了》, written by Zhu Mo, was released on his birthday on April 7, 2015, during a press conference held in Beijing.</p>
-	                </div>
-	            </div>
+    <div class="container-blog">
+        <div class="container">
+            <div class="page-header" id="blog">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="text-primary">Categories</h2>
+                        <br />
+                        <p class="text-primary">Top Rated</p>
+                        <p class="text-primary">Most Liked</p>
+                        <p class="text-primary">Brand New</p>
+                        <p class="text-primary">Some other type</p>
+                        <br />
+                        <h2 class="text-primary">Archives</h2>
+                        <br />
+                        <p class="text-primary">December 2016</p>
+                        <p class="text-primary">January 2017</p>
+                        <p class="text-primary">Fevruary 2017</p>
+                        <p class="text-primary">March 2017</p>
+                        <p class="text-primary">April 2017</p>
+                    </div>
+                    <div class="col-md-9">
+                    <h3>Got awesome idea? Why don't you publish it <a href="{{pathFor 'createIdea'}}">here</a></h3>
+                    <hr />
+                    <p>Top Ideas for you</p>
+                    <hr />
+                        <div>
+                            {{#each ideas}}
+                            <div class="row">
+                                <div class="col-xs-12">
+                                <p>
+                                <a href="#" style="color: grey;">Respond</a>
+                                &nbsp; 
+                                <a href="#" style="color: grey;">See Comments</a>
+                                 &nbsp; 
+                                <a href="#" style="color: grey;">Send PM </a>
+                                &nbsp; 
+                                </p>
+                                <div class="clearfix">
+                                    <img class="img-responsive pull-left" style="border-radius: 10px; width: 40px;
+  height: auto;" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50/s=40"/>
+                                Person name goes here <br /> &nbsp;&nbsp;&nbsp;Some professional catchy stuff goes here 
+                                </div>
+  
+                                    <a href=""><h3>{{summary}}</h3></a>
+                                    <p class="text-justify">
+                                        {{trimDescription(description)}}
+                                        <a href="">(View Details)</a>
+                                    </p>
+                                    <p>Likes : {{likes_count}}&nbsp;
+                                        Dislikes : {{dislikes_count}} &nbsp; 
+                                     </p> 
+                                    <p>
+                                      <a class="btn btn-danger">Up Vote</a>  
+                                    </p>   
+                                </div>
+                            </div>
+
+                            <hr />
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        {{#each ideas}}
-			{{> Template.dynamic template="ideaListing" data=this}}				
-		{{/each}}
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
     </div>
-</div>
-</div>
-<div class="row">
-<div class="tile-area no-padding">
-    <h4 class="fg-blue text-light margin5">MOST LIKED<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h4>
-    <div class="tile-group no-margin no-padding" style="width: 100%;">
-        <div class="tile-large ol-transparent" data-role="tile"></div>
-        <div class="tile-wide ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile ol-transparent" data-role="tile"></div>
-        <div class="tile-wide ol-transparent" data-role="tile"></div>
-    </div>
-    </div>
-</div>
- 
 
 </template>
