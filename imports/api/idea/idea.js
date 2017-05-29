@@ -22,13 +22,28 @@ IdeaSchema = new SimpleSchema({
 		label : "Status"
 	},
 	"expiresOn" : {
-		type : Date
+		type : Date,
+		autoValue: function () {
+			if ( this.isInsert ) {
+				return new Date('31-Dec-2017')
+		  	}
+		}
 	},
 	"likes_count": {
-		type: Number
+		type: Number,
+		autoValue: function () {
+			if ( this.isInsert ) {
+				return 0
+		  	}
+		}
 	},
 	"dislikes_count" : {
-		type: Number
+		type: Number,
+		autoValue: function () {
+			if ( this.isInsert ) {
+				return 0
+		  	}
+		}		
 	},
 	"createdAt": {
 		type: Date,
