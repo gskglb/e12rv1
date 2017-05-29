@@ -1,68 +1,82 @@
 <template name="home">
-    <div class="container-blog">
-        <div class="container">
-            <div class="page-header" id="blog">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h2 class="text-primary">Categories</h2>
-                        <br />
-                        <p class="text-primary">Top Rated</p>
-                        <p class="text-primary">Most Liked</p>
-                        <p class="text-primary">Brand New</p>
-                        <p class="text-primary">Some other type</p>
-                        <br />
-                        <h2 class="text-primary">Archives</h2>
-                        <br />
-                        <p class="text-primary">December 2016</p>
-                        <p class="text-primary">January 2017</p>
-                        <p class="text-primary">Fevruary 2017</p>
-                        <p class="text-primary">March 2017</p>
-                        <p class="text-primary">April 2017</p>
-                    </div>
-                    <div class="col-md-9">
-                    <h3>Got awesome idea? Why don't you publish it <a href="{{pathFor 'createIdea'}}">here</a></h3>
-                    <hr />
-                    <p>Top Ideas for you</p>
-                    <hr />
-                        <div>
-                            {{#each ideas}}
-                            <div class="row">
-                                <div class="col-xs-12">
-                                <p>
-                                <a href="#" style="color: grey;">Respond</a>
-                                &nbsp; 
-                                <a href="#" style="color: grey;">See Comments</a>
-                                 &nbsp; 
-                                <a href="#" style="color: grey;">Send PM </a>
-                                &nbsp; 
-                                </p>
-                                <div class="clearfix">
-                                    <img class="img-responsive pull-left" style="border-radius: 10px; width: 40px;
-  height: auto;" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50/s=40"/>
-                                Person name goes here <br /> &nbsp;&nbsp;&nbsp;Some professional catchy stuff goes here 
-                                </div>
-  
-                                    <a href=""><h3>{{summary}}</h3></a>
-                                    <p class="text-justify">
-                                        {{trimDescription(description)}}
-                                        <a href="">(View Details)</a>
-                                    </p>
-                                    <p>Likes : {{likes_count}}&nbsp;
-                                        Dislikes : {{dislikes_count}} &nbsp; 
-                                     </p> 
-                                    <p>
-                                      <a class="btn btn-danger">Up Vote</a>  
-                                    </p>   
-                                </div>
-                            </div>
+  <nav class="navbar navbar-default navbar-fixed-top top-nav-collapse" style="background-color: RGBA(13, 70, 83, 0.78);">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{pathFor 'landing'}}"><img src="img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{pathFor 'home'}}">Browse Ideas</a></li>
+            <li class=""><a href="{{pathFor 'createIdea'}}">New Idea</a></li>
 
-                            <hr />
-                            {{/each}}
+            {{#if currentUser}}
+              <li class=""><a href="{{pathFor 'manageProfile'}}">Settings</a></li>
+              <li class=""><a data-action="logOut">Sign Out</a></li>
+            {{/if}}
+          </ul>
+        </div>
+    </div>
+    </div>
+  </nav>
+    <section id="service" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 hidden-xs hidden-sm ">
+
+                   <div class="row"> 
+                      <h4 class="ser-title">Categories</h4>
+                      <hr class="botm-line">
+                      <div class="space"></div>
+                      <p>Top Ranked</p>
+                      <p>Most Liked</p>
+                      <p>Highly Active</p>
+                      <p>Something else</p>
+                      <div class="space"></div>
+                  </div>
+
+                </div>
+                <div class="col-md-10 col-sm-4">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <input type="text" name="searchField" class="form-control br-radius-zero" id="searchField" placeholder="Search Text" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
                         </div>
+                    </div>
+                    <div class="col-md-12 col-sm-4 col-xs-12">    
+                        <div class="form-action">
+                            <a class="btn btn-form btn-block">Search Awesome Ideas</a>
+                        </div>
+                    </div>    
+                    
+                  </div>                
+                    <div class="row">
+                        {{#each ideas}}
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                        <hr />
+                            <p>Comments &nbsp; Like &nbsp; </p>
+                            <div class="caption">
+                                <h4>{{summary}}</h4>
+                            </div>    
+                            <p class="text-align: justify;text-justify: inter-word;">{{trimDescription(description)}} &nbsp;<a href="">(view more details)</a></p>
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                            
+                        </div>
+                         
+                        {{/each}}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
 </template>

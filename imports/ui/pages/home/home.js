@@ -12,7 +12,7 @@ Template.home.helpers({
   },
 
   trimDescription(desc){
-  	return desc.substr(0,500) + "...";
+  	return desc.substr(0,400) + "...";
   }
 
 });

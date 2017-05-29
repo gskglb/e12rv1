@@ -1,4 +1,4 @@
-import { Idea } from '/imports/api/idea/idea.js';
+
 
 import './create.html';
 
@@ -9,12 +9,13 @@ Template.createIdeaForm.helpers({
     return { 
       refNo : "I_" + moment().format('DDMMMYYYY_HMMss'),
       status : "Unpublished",
+      expiresOn : new Date("31-Dec-2017"),
     };
   }
 });
 
 AutoForm.hooks({
-  createIdeaForm: {
+  insertIdeaForm: {
    onSuccess: function () {
       	Flash.success("Your idea is successfully created in our idea bank");
         return true;
