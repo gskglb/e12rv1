@@ -8,4 +8,8 @@ Accounts.ui.config({
 
 Meteor.startup(function(){
 	//$('body').addClass('bg-steel');
+	$('body').attr('id', 'myPage');
+	$('body').attr('data-spy', 'scroll');
+	$('body').attr('data-target', '.navbar');
+	$('body').attr('data-offset', '60');
 });
