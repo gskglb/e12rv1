@@ -7,7 +7,7 @@ import '../../ui/pages/landing/landing.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/idea/createIdea.js';
 import '../../ui/pages/not-found/not-found.js';
-
+import '../../ui/pages/profile/manageProfile.js';
 
 AccountsTemplates.configureRoute('signIn', {
     redirect: '/home'
@@ -35,7 +35,7 @@ Router.route('/home', {
   template: 'home' 
 });
 
-Router.route('/profile', {
+Router.route('/manageProfile', {
   name: 'manageProfile',
   template: 'manageProfile' 
 });
