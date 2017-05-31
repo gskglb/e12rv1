@@ -1,6 +1,7 @@
 import { Router } from 'meteor/iron:router';
-
-import { Mongo } from 'meteor/mongo';
+import {Meteor} from 'meteor/meteor';
+import {Profile} from '../../../api/profile/userProfile.js';
+import                '../../../api/profile/methods.js';
 
 import './manageProfile.html';
 
@@ -10,8 +11,7 @@ Template.manageProfile.helpers({
 	},
 	profileData:function(){
 		var userId = Meteor.userId();
-		const users = new Mongo.Collection('todos');
-		var cursor = users.find({_id:userId});
+		var cursor = Profile.find({_id:userId});
 		return cursor;
 	}
 });
@@ -27,13 +27,15 @@ Template.manageProfile.events({
 		event.preventDefault();
 		console.log("save clicked, user id:"+Meteor.userId);
 		var userId = Meteor.userId();
-		// const users = new Mongo.Collection('users');
 		var firstName = event.target.firstName.value;
-		var lastName = event.target.lastName.value;
-		var sex = event.target.sex.value;
-		var address = event.target.address.value;
+		var lastName  = event.target.lastName.value;
+		var sex       = event.target.sex.value;
+		var address   = event.target.address.value;
 
-		var result = users.updateOne({_id:userId},{$set:{fname:firstName,lname:lastName,sex:sex,address:address}});
+		var profileObj = {'_id':userId,'fname':firstName,'lname':lastName,'sex':sex,'address':address};
+
+		var result = Meteor.call('profile.upsert',profileObj);
+		
 		console.log(result);
 		Router.go("landing");
 	}
