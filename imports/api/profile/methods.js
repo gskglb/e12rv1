@@ -20,7 +20,7 @@ Meteor.methods({
 		var address= profileObj.address;
 		var id    = Meteor.userId();
 		console.log("fname:"+fname+";lname:"+lname+";gender:"+sex+";address:"+address);
-		var cursor = Profile.update({'_id':id},{$set:{'fname':fname,'lname':lname,'sex':sex,'address':address}});
+		var cursor = Profile.upsert({'_id':id},{$set:{'fname':fname,'lname':lname,'sex':sex,'address':address}});
 		console.log("profile.upsert:update:"+cursor);
 		return cursor;
 	}
