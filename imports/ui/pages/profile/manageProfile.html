@@ -19,10 +19,10 @@
 					</div>
 					<div class="row">
 						<label for="sex">Sex</label>
-						<select name="sex" class="form-control" required="true" value="{{profileData.sex}}">
+						<select name="sex" class="form-control" required="true">
 						 	<option disabled="disabled" selected="selected">Please Select</option> 
 							{{#each gender}}
-								<option value="{{this.key}}">{{this.value}}</option>
+								<option value="{{this.key}}" {{isSelected profileData.sex second=this.key}}>{{this.value}}</option>
 							{{/each}}
 						</select>
 					</div>

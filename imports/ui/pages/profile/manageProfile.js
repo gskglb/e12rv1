@@ -10,6 +10,7 @@ Template.body.onCreated(function onCreate(){
 	Meteor.subscribe('MyProfile');
 });
 
+
 Template.manageProfile.helpers({
 	gender:function(){
 		return [{key:"M",value:"Male"},{key:"F",value:"Female"},{key:"O",value:"Others"}];
@@ -28,6 +29,10 @@ Template.manageProfile.helpers({
 		  profileObj.address = profile.address;
 		});
 		return profileObj;
+	},
+	isSelected:function(first, second){
+		console.log(first+"--"+second.hash.second+"---"+(first===second.hash.second));
+		return (first===second.hash.second)?"selected":"";
 	}
 });
 
