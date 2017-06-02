@@ -18,9 +18,12 @@ Meteor.methods({
 		var lname = profileObj.lname;
 		var sex   = profileObj.sex;
 		var address= profileObj.address;
+		var country= profileObj.country;
 		var id    = Meteor.userId();
-		console.log("fname:"+fname+";lname:"+lname+";gender:"+sex+";address:"+address);
-		var cursor = Profile.upsert({'_id':id},{$set:{'fname':fname,'lname':lname,'sex':sex,'address':address}});
+		console.log("fname:"+fname+";lname:"+lname+";gender:"+sex+";address:"+address+";country"+country);
+
+		var cursor = Profile.upsert({'_id':id},{$set:{'fname':fname,'lname':lname,'sex':sex,'address':address,'country':country}});
+
 		console.log("profile.upsert:update:"+cursor);
 		return cursor;
 	}
