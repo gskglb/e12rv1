@@ -1,6 +1,7 @@
 import '/imports/ui/components/idea/create.js';
 import './createIdea.html';
 import { Idea } from '/imports/api/idea/idea.js';
+import '/imports/ui/modals/addTags.js';
 
 Template.createIdea.onCreated(function () {
   Meteor.subscribe('ideas.me');
@@ -27,7 +28,13 @@ Template.createIdea.events({
 	        console.log("Sorry couldn't Unpublish your idea" + this._id);
 	      } 
 	    });  
- 	}
+ 	},
+
+ 	'click .addTagsModal': function(event){
+ 		event.preventDefault();
+ 		Session.set('ideaObj', this);
+ 		Modal.show('addTagsModal');
+ 	} 
  
 });
 

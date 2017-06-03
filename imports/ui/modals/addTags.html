@@ -1,0 +1,27 @@
+<template name="addTagsModal">
+{{#with getIdeaObj}}
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Tags</h4>
+				</div>
+				
+				<div class="modal-body">
+					<p>Add Tags to your idea so that people can search by key words</p>
+					  <select class='tag-input' name='tags[]' multiple="multiple">
+					    {{#each tags}}
+					      <option value="{{this}}" selected="true">{{this}}</option>
+					    {{/each}}
+					  </select>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-form" data-dismiss="modal">Close</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+{{/with}}	
+</template>

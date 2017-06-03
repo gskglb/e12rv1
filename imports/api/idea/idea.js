@@ -3,6 +3,9 @@
 import { Mongo } from 'meteor/mongo';
 
 export const Idea = new Mongo.Collection('Ideas');
+Tags.TagsMixin(Idea);
+Idea.allowTags(function (userId) { return true; });
+
 
 IdeaSchema = new SimpleSchema({
 	"refNo" : {
@@ -26,6 +29,14 @@ IdeaSchema = new SimpleSchema({
 		autoValue: function () {
 			if ( this.isInsert ) {
 				return moment().toDate();
+		  	}
+		}
+	},
+	"comments_count" : {
+		type: Number,
+		autoValue: function () {
+			if ( this.isInsert ) {
+				return 0
 		  	}
 		}
 	},
@@ -75,5 +86,7 @@ IdeaSchema = new SimpleSchema({
 		optional : true
 	}
 });
+
+
 
 Idea.attachSchema(IdeaSchema);
