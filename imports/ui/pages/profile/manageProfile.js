@@ -1,13 +1,10 @@
 import {Router}  from 'meteor/iron:router';
 import {Meteor}  from 'meteor/meteor';
-import {ReactiveDict} from 'meteor/reactive-dict';
-import {Profile} from '../../../api/profile/userProfile.js';
 import '../../../api/profile/methods.js';
 import './manageProfile.html';
 
 Template.body.onCreated(function onCreate(){
-	this.state = new ReactiveDict();
-	Meteor.subscribe('MyProfile');
+	Meteor.subscribe('MyProfile')
 });
 
 
@@ -22,21 +19,22 @@ Template.manageProfile.helpers({
 		return Meteor.userId();
 	},
 	profileData:function(){
-		var cursor = Profile.find({});
-		console.log("on client>>>"+cursor.count());
+		var cursor = Meteor.users.find({});
 		var profileObj = {};
-		cursor.forEach((profile) => {
-		  profileObj.fname = profile.fname;
-		  profileObj.lname = profile.lname;
-		  profileObj.sex   = profile.sex;
-		  profileObj.address = profile.address;
-		  profileObj.country = profile.country;
+		cursor.forEach((user) => {
+			console.log(user._id+"<<<<<<<<<<<<<")
+			try {
+				profileObj.fname   = user.profileData.fname;
+				profileObj.lname   = user.profileData.lname;
+				profileObj.sex     = user.profileData.sex;
+				profileObj.address = user.profileData.address;
+				profileObj.country = user.profileData.country;
+			}catch(e){console.log(e)}
 		});
-		console.log()
 		return profileObj;
 	},
-	isSelected:function(first, second){
-		return (first===second.hash.second)?"selected":"";
+	isSelected:function(prop1, prop2) {
+		return (prop1===prop2.hash.second)?"selected":"";
 	}
 });
 
@@ -53,12 +51,12 @@ Template.manageProfile.events({
 		var firstName = event.target.firstName.value;
 		var lastName  = event.target.lastName.value;
 		var sex       = event.target.sex.value;
-		var address   = event.target.address.value;
 		var country   = event.target.country.value;
+		var address   = event.target.address.value;
 	
-		var profileObj = {'fname':firstName,'lname':lastName,'sex':sex,'address':address,'country':country};
+		var profileObj = {'fname':firstName,'lname':lastName,'sex':sex,'country':country,'address':address};
 
-		var result = Meteor.call('profile.upsert',profileObj);
+		var result = Meteor.call('profile.update',profileObj);
 		
 		console.log(result);
 		Router.go("landing");
