@@ -25,7 +25,7 @@ IdeaSchema = new SimpleSchema({
 		type : Date,
 		autoValue: function () {
 			if ( this.isInsert ) {
-				return new Date('31-Dec-2017')
+				return moment().toDate();
 		  	}
 		}
 	},
@@ -49,7 +49,7 @@ IdeaSchema = new SimpleSchema({
 		type: Date,
 		autoValue: function() {
 	  		if ( this.isInsert ) {
-	    		return new Date;
+	    		return moment().toDate();
 	  		} 
 		}
 	},	  
@@ -57,11 +57,11 @@ IdeaSchema = new SimpleSchema({
 		type: String,
 		autoValue: function () {
 			if ( this.isInsert ) {
-				if(Meteor.isClient){
-					return Meteor.userId();	
+				if(Meteor.isServer){
+					return this.userId?this.userId:"SYS";		
 				}else{
-					return "-1";
-				}
+		  			return "SYS";
+		  		}	
 		  	}
 		}
 	},

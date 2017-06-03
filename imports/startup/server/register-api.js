@@ -1,7 +1,6 @@
 // Register your apis here
 
-import '../../api/idea/methods.js';
-import '../../api/idea/publications.js';
+import '/imports/api/idea';
 
-import '../../api/profile/userProfile.js';
-import '../../api/profile/methods.js';
+import '/imports/api/profile/userProfile.js';
+import '/imports/api/profile/methods.js';

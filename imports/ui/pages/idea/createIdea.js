@@ -1,31 +1,18 @@
-import { Idea } from '/imports/api/idea/idea.js';
+import '/imports/ui/components/idea/create.js';
 import './createIdea.html';
+import { Idea } from '/imports/api/idea/idea.js';
 
-Template.createIdea.helpers({
-  defaultValues : function(){
-    var templateData = Template.instance().data;
-    return { 
-      refNo : "I_" + moment().format('DDMMMYYYY_HMMss'),
-      status : "Unpublished",
-      expiresOn : new Date("31-Dec-2017"),
-    };
-  },
-
-  ideaCollection() {
-    return Idea;
-  }
-
+Template.createIdea.onCreated(function () {
+  Meteor.subscribe('ideas.me');
 });
 
-AutoForm.hooks({
-  insertIdeaForm: {
-	onSubmit: function (insertDoc, updateDoc, currentDoc) {
-		console.log("Submitted");
-      return true;
-    },
-   onSuccess: function () {
-      	Flash.success("Your idea is successfully created in our idea bank");
-        return true;
-    }
-  }
+
+Template.createIdea.helpers({
+	myIdeas() {
+    	return Idea.find({createdBy:Meteor.userId()}, { sort: { createdAt: -1 } });
+  	},
+
+	trimDescription(desc){
+		return desc.substr(0,400) + "...";
+	}  	
 });

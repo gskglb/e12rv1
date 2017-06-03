@@ -1,0 +1,34 @@
+<template name="createIdeaForm">
+  {{flash}}
+  {{#autoForm schema="IdeaSchema" collection=getIdeaCollection id="insertIdeaForm" type="insert" doc=defaultValues}}
+    <fieldset>
+		<div class="form-group">
+			{{> afQuickField type="hidden" class="form-control br-radius-zero" name='refNo'}}
+        </div>
+    	<div class="form-group">
+        	{{> afQuickField type="hidden" class="form-control br-radius-zero" name='status' }}
+        </div>	
+		<div class="form-group">
+			{{> afQuickField 
+        class="form-control br-radius-zero" 
+        name='summary'
+        placeholder="e.g A mobile idea sharing platform that can connect idea with investor and executers"
+
+      }}
+        </div>
+		<div class="form-group">
+			{{> afQuickField 
+        class="form-control br-radius-zero" 
+        name='description' 
+        rows=5
+        placeholder="e.g Develop a mobile app which work like facebook for enterprenuers. It allows person to share idea, seek feedback, pitch for investment etc. Also, for investers, this app can provide a platform to look for appealing idea, explore about it, connect with idea generator and take it forward for implementation."
+      }}
+    </div>
+
+       
+    </fieldset>
+    <button type="submit" class="btn btn-form">Create Idea</button>
+
+  {{/autoForm}}
+
+</template>

@@ -7,3 +7,8 @@ Meteor.publish('ideas.all', function () {
 	console.log("Getting ideas");
   return Idea.find();
 });
+
+Meteor.publish('ideas.me', function () {
+	console.log("Getting my ideas");
+  return Idea.find({createdBy:this.userId});
+});

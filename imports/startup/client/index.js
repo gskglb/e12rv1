@@ -7,7 +7,7 @@ Accounts.ui.config({
 });
 
 Meteor.startup(function(){
-	//$('body').addClass('bg-steel');
+	$('body').addClass('homepage');
 	$('body').attr('id', 'myPage');
 	$('body').attr('data-spy', 'scroll');
 	$('body').attr('data-target', '.navbar');

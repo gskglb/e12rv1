@@ -1,4 +1,4 @@
-// Fill the DB with example data on startup
+  // Fill the DB with example data on startup
 
 import { Meteor } from 'meteor/meteor';
 import { Idea } from '../../api/idea/idea.js';
@@ -6,7 +6,7 @@ import { Idea } from '../../api/idea/idea.js';
 Meteor.startup(() => {
 
   // Clean up all ideas
-  Idea.remove({});
+  //Idea.remove({});
   // if the Links collection is empty
   if (Idea.find().count() === 0) {
     const data = [
@@ -67,5 +67,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     ];
 
     data.forEach(idea => Idea.insert(idea));
+    console.log("Ideas refreshed");
   }
 });

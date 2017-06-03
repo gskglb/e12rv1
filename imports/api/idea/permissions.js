@@ -1,4 +1,5 @@
 import { Idea } from './idea.js';
+
 Idea.allow({
 insert: function (userId, doc) {
   return true;

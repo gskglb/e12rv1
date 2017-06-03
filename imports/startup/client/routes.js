@@ -1,13 +1,14 @@
-import { Router } from 'meteor/iron:router'
+import { Router } from 'meteor/iron:router';
 
 
 // Import needed templates
-import '../../ui/layouts/body/body.js';
-import '../../ui/pages/landing/landing.js';
-import '../../ui/pages/home/home.js';
-import '../../ui/pages/idea/createIdea.js';
-import '../../ui/pages/not-found/not-found.js';
-import '../../ui/pages/profile/manageProfile.js';
+import '/imports/ui/layouts/body/body.js';
+import '/imports/ui/pages/landing/landing.js';
+import '/imports/ui/pages/home/home.js';
+import '/imports/ui/pages/idea/createIdea.js';
+import '/imports/ui/pages/profile/manageProfile.js';
+import '/imports/ui/pages/not-found/not-found.js';
+
 
 AccountsTemplates.configureRoute('signIn', {
     redirect: '/home'
@@ -17,12 +18,12 @@ AccountsTemplates.configureRoute('signUp', {
 });
 
 Router.plugin('ensureSignedIn', {
- only : ['createIdea', 'manageProfile']  
+ only : ['createIdea', 'manageProfile',]  
 });
 
 Router.configure({
     layoutTemplate: 'App_body',
-    notFoundTemplate: 'App_notFound'
+    notFoundTemplate: 'App_notFound',
 });
 
 Router.route('/', {
