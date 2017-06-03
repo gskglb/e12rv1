@@ -8,7 +8,7 @@ Template.home.onCreated(function () {
 
 Template.home.helpers({
   ideas() {
-    return Idea.find({}, { sort: { createdAt: -1 } });
+    return Idea.find({status:"Published"}, { sort: { createdAt: -1 } });
   },
 
   trimDescription(desc){

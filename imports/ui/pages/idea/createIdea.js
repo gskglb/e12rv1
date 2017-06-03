@@ -6,6 +6,32 @@ Template.createIdea.onCreated(function () {
   Meteor.subscribe('ideas.me');
 });
 
+Template.createIdea.events({
+	'click .publish': function(event){
+		event.preventDefault();
+		console.log("Publish clicked" + this._id);
+	 	
+ 		Meteor.call("statusUpdate", this._id, "Published" ,function(error, result) {
+	      if(error) {
+	        console.log("Sorry couldn't publish your idea" + this._id);
+	      } 
+	    });  
+ 	},
+
+	'click .unpublish': function(event){
+		event.preventDefault();
+		console.log("Publish clicked" + this._id);
+	 	
+ 		Meteor.call("statusUpdate", this._id, "Unpublished" ,function(error, result) {
+	      if(error) {
+	        console.log("Sorry couldn't Unpublish your idea" + this._id);
+	      } 
+	    });  
+ 	}
+ 
+});
+
+
 
 Template.createIdea.helpers({
 	myIdeas() {
@@ -14,5 +40,10 @@ Template.createIdea.helpers({
 
 	trimDescription(desc){
 		return desc.substr(0,400) + "...";
-	}  	
+	},  	
+
+	isPublishRequired : function(status){
+    	return status === "Unpublished";
+   	}, 
+
 });

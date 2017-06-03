@@ -56,9 +56,19 @@
                         {{#each myIdeas}}
                         <div class="col-md-12 col-sm-4 col-xs-12">
                         <hr />
-                            <p>Modify &nbsp; Add Tags &nbsp; View Correspondance &nbsp; Invite Friends </p>
+                        <p>
+                          {{#if isPublishRequired status }}
+                            <a href="#" class="publish">Publish</a> 
+                          {{else}}
+                            <a href="#" class="unpublish">Unpublish</a> 
+                          {{/if}}
+                          &nbsp; | &nbsp;
+                            Modify &nbsp; Add Tags &nbsp; View Correspondance &nbsp; Invite Friends </p>
                             <div class="caption">
-                                <h4>{{summary}}</h4>
+                                <h4>
+                                  {{summary}} &nbsp;
+
+                                </h4>
                             </div>    
                             <ul class="list-inline">
                                 <li>Liked by {{likes_count}} people. <a href="#">Details</a></li>
