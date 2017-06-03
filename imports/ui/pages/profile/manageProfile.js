@@ -10,7 +10,11 @@ Template.body.onCreated(function onCreate(){
 	Meteor.subscribe('MyProfile');
 });
 
+
 Template.manageProfile.helpers({
+	countrySelectProps:function(){
+		return {name:'country', class:'form-control'};
+	},
 	gender:function(){
 		return [{key:"M",value:"Male"},{key:"F",value:"Female"},{key:"O",value:"Others"}];
 	},
@@ -26,8 +30,13 @@ Template.manageProfile.helpers({
 		  profileObj.lname = profile.lname;
 		  profileObj.sex   = profile.sex;
 		  profileObj.address = profile.address;
+		  profileObj.country = profile.country;
 		});
+		console.log()
 		return profileObj;
+	},
+	isSelected:function(first, second){
+		return (first===second.hash.second)?"selected":"";
 	}
 });
 
@@ -45,8 +54,9 @@ Template.manageProfile.events({
 		var lastName  = event.target.lastName.value;
 		var sex       = event.target.sex.value;
 		var address   = event.target.address.value;
-
-		var profileObj = {'fname':firstName,'lname':lastName,'sex':sex,'address':address};
+		var country   = event.target.country.value;
+	
+		var profileObj = {'fname':firstName,'lname':lastName,'sex':sex,'address':address,'country':country};
 
 		var result = Meteor.call('profile.upsert',profileObj);
 		

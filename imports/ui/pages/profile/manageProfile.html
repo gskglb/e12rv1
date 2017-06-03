@@ -19,12 +19,16 @@
 					</div>
 					<div class="row">
 						<label for="sex">Sex</label>
-						<select name="sex" class="form-control" required="true" value="{{profileData.sex}}">
+						<select name="sex" class="form-control" required="true">
 						 	<option disabled="disabled" selected="selected">Please Select</option> 
 							{{#each gender}}
-								<option value="{{this.key}}">{{this.value}}</option>
+								<option value="{{this.key}}" {{isSelected profileData.sex second=this.key}}>{{this.value}}</option>
 							{{/each}}
 						</select>
+					</div>
+					<div class="row">
+						<label for="country">Country</label>
+						{{> countryCodeSelect selected=profileData.country props=countrySelectProps}}
 					</div>
 					<div class="row">
 						<label for="address">Address</label>
@@ -42,7 +46,6 @@
 							<button name="save" type="submit" class="btn btn-success btn-lg profile-save" value="save">Save</button>
 						</div>
 					</div>
-					
 				</fieldset>
 		</form>
 	</div>

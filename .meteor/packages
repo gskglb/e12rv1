@@ -36,6 +36,7 @@ dburles:collection-helpers
 twbs:bootstrap
 fortawesome:fontawesome
 naxio:flash
-dynamic-import
 jchristman:tagsinput-autocomplete
 meteortoys:allthings
+3stack:country-codes
+
