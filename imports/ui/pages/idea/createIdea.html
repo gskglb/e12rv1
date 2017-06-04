@@ -41,28 +41,50 @@
 
                 </div>
                 <div class="col-md-10 col-sm-4">
-  
-                  <h4>Try to brief your <strong>Idea here</strong></h4>
-                  <h5><span class="help-block">See the examples here</span></h5>
-                    {{flash}}
-                    {{#autoForm collection=ideaCollection id="insertIdeaForm" type="insert" doc=defaultValues}}
-                      <fieldset>
-                        {{> afQuickField name='refNo' type="text" readonly=true }}
-                          {{> afQuickField name='status' readonly=true }}
+                  <div class="row">
+                      <div class="col-md-12 col-sm-4">
+                        {{> Template.dynamic template="createIdeaForm" data=currentUser}}    
+                      </div>
+                  </div> 
+                  <div class="row">
+                      <div class="col-md-12 col-sm-4">
+                        <h4>
+                          Manage Your Ideas 
+                        </h4>
 
-                          <div class="form-group {{#if afFieldIsInvalid name='summary'}}has-error {{/if}}" >
-                            {{> afQuickField name='summary' autofocus=''}}
-                          </div>
+                        <div class="row">
+                        {{#each myIdeas}}
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                        <hr />
+                        <p>
+                          {{#if isPublishRequired status }}
+                            <a href="#" class="publish">Publish</a> 
+                          {{else}}
+                            <a href="#" class="unpublish">Unpublish</a> 
+                          {{/if}}
+                          &nbsp; | &nbsp;
+                            Modify &nbsp; 
+                            <a href="#" class="addTagsModal">Add Tags</a> &nbsp; View Correspondance &nbsp; Invite Friends </p>
+                            <div class="caption">
+                                <h4>
+                                  {{summary}} &nbsp;
 
-                          <div class="form-group {{#if afFieldIsInvalid name='description'}}has-error {{/if}}" >
-                            {{> afQuickField name='description' rows=5}}
-                          </div>  
+                                </h4>
+                            </div>    
+                            <ul class="list-inline">
+                                <li>Liked by {{likes_count}} people. <a href="#">Details</a></li>
+                                <li>Disliked by {{dislikes_count}} people. <a href="#">Details</a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                            
+                        </div>
                          
-                      </fieldset>
-                      <button type="submit" class="btn btn-form">Create Idea</button>
-                      <button type="reset" class="btn btn-default">Reset</button>
-                    {{/autoForm}}
-	              </div>
+                        {{/each}}
+                    </div>
+                      </div>
+                  </div> 
+                  
+                </div>
 	        </div>
 	    </div>
 	</section>

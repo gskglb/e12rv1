@@ -65,6 +65,11 @@
                                 <h4>{{summary}}</h4>
                             </div>    
                             <p class="text-align: justify;text-justify: inter-word;">{{trimDescription(description)}} &nbsp;<a href="">(view more details)</a></p>
+                            <p> Tags : 
+                            {{#each tags}}
+                             <a href="#">{{this}}</a> &nbsp;
+                            {{/each}}
+                            </p>
                             <ul class="list-inline">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
