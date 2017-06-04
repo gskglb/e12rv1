@@ -2,5 +2,4 @@
 
 import '/imports/api/idea';
 
-import '/imports/api/profile/userProfile.js';
 import '/imports/api/profile/methods.js';
