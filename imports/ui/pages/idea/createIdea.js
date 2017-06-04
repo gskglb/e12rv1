@@ -34,7 +34,14 @@ Template.createIdea.events({
  		event.preventDefault();
  		Session.set('ideaObj', this);
  		Modal.show('addTagsModal');
- 	} 
+ 	},
+
+ 	'click .showHideTags' : function(event){
+ 		$(".main-container.collapse").on('shown.bs.collapse', function () {    
+		//when a collapsed div is shown hide all other collapsible divs that are visible
+       		$(".main-container.collapse").not($(this)).collapse('hide');
+		});
+ 	}
  
 });
 
