@@ -3,10 +3,13 @@ import {Meteor}  from 'meteor/meteor';
 import '../../../api/profile/methods.js';
 import './manageProfile.html';
 
-Template.body.onCreated(function onCreate(){
-	Meteor.subscribe('MyProfile')
+Template.manageProfile.onCreated(function onCreate(){
+	this.profileObj = new ReactiveVar();
+	var abc         = this.profileObj;
+	Meteor.call('profile.read',null,function(error,result){
+		abc.set(result);
+	});
 });
-
 
 Template.manageProfile.helpers({
 	countrySelectProps:function(){
@@ -19,18 +22,7 @@ Template.manageProfile.helpers({
 		return Meteor.userId();
 	},
 	profileData:function(){
-		var cursor = Meteor.users.find({});
-		var profileObj = {};
-		cursor.forEach((user) => {
-			console.log(user._id+"<<<<<<<<<<<<<")
-			try {
-				profileObj.fname   = user.profileData.fname;
-				profileObj.lname   = user.profileData.lname;
-				profileObj.sex     = user.profileData.sex;
-				profileObj.address = user.profileData.address;
-				profileObj.country = user.profileData.country;
-			}catch(e){console.log(e)}
-		});
+		var profileObj = Template.instance().profileObj.get();
 		return profileObj;
 	},
 	isSelected:function(prop1, prop2) {
